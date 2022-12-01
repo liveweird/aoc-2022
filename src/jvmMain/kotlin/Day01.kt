@@ -43,5 +43,13 @@ class Day01 {
         fun topCalories(counted: List<Int>): Int {
             return counted.max()
         }
+
+        fun top3Calories(counted: List<Int>): Int {
+            return counted
+                .sorted()
+                .asReversed()
+                .take(3)
+                .sum()
+        }
     }
 }

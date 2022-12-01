@@ -21,4 +21,20 @@ class Day01Test {
         val topCalories = Day01.topCalories(calories)
         assertEquals(topCalories, 75501)
     }
+
+    @Test
+    fun testCountCalories3() {
+        val result = Day01.readInput("./input/Day01a.txt")
+        val calories = Day01.countCalories(result)
+        val topCalories = Day01.top3Calories(calories)
+        assertEquals(topCalories, 45000)
+    }
+
+    @Test
+    fun testCountCalories4() {
+        val result = Day01.readInput("./input/Day01b.txt")
+        val calories = Day01.countCalories(result)
+        val topCalories = Day01.top3Calories(calories)
+        assertEquals(topCalories, 215594)
+    }
 }
