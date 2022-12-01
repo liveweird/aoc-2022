@@ -2,10 +2,10 @@ import java.io.InputStream
 import java.io.File
 class Day01 {
     companion object Part1 {
-        fun readInput(fileName: String): MutableList<MutableList<Number>> {
+        fun readInput(fileName: String): MutableList<MutableList<Int>> {
             val inputStream: InputStream = File(fileName).inputStream()
-            val result: MutableList<MutableList<Number>> = emptyList<MutableList<Number>>().toMutableList()
-            var currentList = mutableListOf<Number>()
+            val result: MutableList<MutableList<Int>> = emptyList<MutableList<Int>>().toMutableList()
+            var currentList = mutableListOf<Int>()
 
             inputStream.bufferedReader().useLines {
                 lines -> lines.forEach {
@@ -29,6 +29,19 @@ class Day01 {
             }
 
             return result
+        }
+
+        fun countCalories(calories: MutableList<MutableList<Int>>): List<Int> {
+            val counted: List<Int> = calories
+                .map {
+                    list: List<Int> -> list.toList().sumOf { it }
+                }
+
+            return counted
+        }
+
+        fun topCalories(counted: List<Int>): Int {
+            return counted.max()
         }
     }
 }
