@@ -22,4 +22,20 @@ class Day03Test {
         val points = Day03.calcPoints(map)
         assertEquals(points, 7691)
     }
+
+    @Test
+    fun testCalcResult3() {
+        val triples = Day03.readInput2("./input/Day03a.txt")
+        val map = Day03.findDupes2(triples)
+        val points = Day03.calcPoints(map.toList())
+        assertEquals(points, 70)
+    }
+
+    @Test
+    fun testCalcResult4() {
+        val triples = Day03.readInput2("./input/Day03b.txt")
+        val map = Day03.findDupes2(triples)
+        val points = Day03.calcPoints(map.toList())
+        assertEquals(points, 2508)
+    }
 }
