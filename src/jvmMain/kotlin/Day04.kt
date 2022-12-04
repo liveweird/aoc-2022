@@ -9,6 +9,10 @@ class Day04 {
                 return this.left <= another.left &&
                         this.right >= another.right
             }
+
+            fun isLeftOf(another: Range): Boolean {
+                return this.right < another.left
+            }
         }
         fun readInput(fileName: String): MutableList<Pair<Range, Range>> {
             val inputStream: InputStream = File(fileName).inputStream()
@@ -36,6 +40,18 @@ class Day04 {
                     if (pair.first.doesFullyContain(pair.second) ||
                         pair.second.doesFullyContain(pair.first)) 1
                     else 0
+            }
+                .sum()
+
+            return points
+        }
+
+        fun countPoints2(pairs: MutableList<Pair<Range, Range>>): Int {
+            val points = pairs.map {
+                    pair ->
+                if (pair.first.isLeftOf(pair.second) ||
+                    pair.second.isLeftOf(pair.first)) 0
+                else 1
             }
                 .sum()
 

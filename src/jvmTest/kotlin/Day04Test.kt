@@ -21,4 +21,18 @@ class Day04Test {
         val points = Day04.countPoints(pairs)
         assertEquals(points, 518)
     }
+
+    @Test
+    fun testCountPoints3() {
+        val pairs = Day04.readInput("./input/Day04a.txt")
+        val points = Day04.countPoints2(pairs)
+        assertEquals(points, 4)
+    }
+
+    @Test
+    fun testCountPoints4() {
+        val pairs = Day04.readInput("./input/Day04b.txt")
+        val points = Day04.countPoints2(pairs)
+        assertEquals(points, 909)
+    }
 }
