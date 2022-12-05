@@ -70,5 +70,28 @@ class Day05 {
 
             return result
         }
+
+        fun process2(stacks: List<ArrayDeque<Char>>, commands: List<Command>): List<Char> {
+            var result: MutableList<Char> = mutableListOf()
+
+            for (command in commands) {
+                val taken = stacks[command.source - 1].take(command.howMany)
+
+                for (iter in 1 until (command.howMany+1)) {
+                    // remove item from source
+                    stacks[command.source - 1].removeFirst()
+                }
+
+                for (elem in taken.asReversed()) {
+                    (stacks.getOrElse(command.destination - 1) { ArrayDeque() }).addFirst(elem)
+                }
+            }
+
+            for (stack in stacks) {
+                result.add(stack.first())
+            }
+
+            return result
+        }
     }
 }
