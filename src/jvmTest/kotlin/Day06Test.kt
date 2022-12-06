@@ -42,4 +42,41 @@ class Day06Test {
         val idx = Day06.waitUntilDupe(input)
         assertEquals(idx, 1275)
     }
+
+    @Test
+    fun testFindDupe7() {
+        val idx = Day06.waitUntilDupe("mjqjpqmgbljsphdztnvjfqwrcgsmlb", 14)
+        assertEquals(idx, 19)
+    }
+
+    @Test
+    fun testFindDupe8() {
+        val idx = Day06.waitUntilDupe("bvwbjplbgvbhsrlpgdmjqwftvncz", 14)
+        assertEquals(idx, 23)
+    }
+
+    @Test
+    fun testFindDupe9() {
+        val idx = Day06.waitUntilDupe("nppdvjthqldpwncqszvftbrmjlhg", 14)
+        assertEquals(idx, 23)
+    }
+
+    @Test
+    fun testFindDupe10() {
+        val idx = Day06.waitUntilDupe("nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg", 14)
+        assertEquals(idx, 29)
+    }
+
+    @Test
+    fun testFindDupe11() {
+        val idx = Day06.waitUntilDupe("zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw", 14)
+        assertEquals(idx, 26)
+    }
+
+    @Test
+    fun testFindDupe12() {
+        val input = Day06.readInput("./input/Day06f.txt")
+        val idx = Day06.waitUntilDupe(input, 14)
+        assertEquals(idx, 3605)
+    }
 }

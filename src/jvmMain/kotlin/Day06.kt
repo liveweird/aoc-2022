@@ -9,21 +9,21 @@ class Day06 {
             return inputStream.bufferedReader().readText()
         }
 
-        fun waitUntilDupe(input: String): Int {
+        fun waitUntilDupe(input: String, size: Int = 4): Int {
             val map = mutableMapOf<Char, Int>()
             val slice: ArrayDeque<Char> = ArrayDeque()
 
             // initialization
-            slice.addAll(input.toCharArray().take(4))
+            slice.addAll(input.toCharArray().take(size))
             slice.forEach {
                 elem: Char ->
                     map[elem] = map.getOrDefault(elem, 0) + 1
             }
 
-            for (idx in 4 until input.length) {
+            for (idx in size until input.length) {
 
                 // decrease dropper
-                val dropper = input[idx - 4]
+                val dropper = input[idx - size]
                 map[dropper] = map[dropper]!! - 1
                 slice.removeFirst()
 
